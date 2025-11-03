@@ -23,7 +23,7 @@
     --shadow-effect: 0 10px 25px -3px rgba(0,0,0,0.3), 0 4px 6px -4px rgba(0,0,0,0.2);
     
     /* Cores de formulário */
-    --color-input-bg: #787878;
+    --color-input-bg: #454545;
     --color-input-text: #1F2937;
 }
 
@@ -572,6 +572,7 @@ footer a:hover {
     .tab-list::-webkit-scrollbar { display: none; }
 
 }
+
 
 
 
