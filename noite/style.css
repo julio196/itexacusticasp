@@ -24,7 +24,7 @@
     
     /* Cores de formulário */
     --color-input-bg: #F4F4F5;
-    --color-input-text: #2C2C31;
+    --color-input-text: #1F2937;
 }
 
 /* === ANIMAÇÕES GLOBAIS === */
@@ -570,4 +570,5 @@ footer a:hover {
         scrollbar-width: none;
     }
     .tab-list::-webkit-scrollbar { display: none; }
+
 }
