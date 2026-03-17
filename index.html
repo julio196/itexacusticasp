@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itex Brasil - Inteligência Acústica de Alta Performance</title>
+    
+    <!-- ==========================================
+         INÍCIO DO CÓDIGO GOOGLE ANALYTICS (GA4)
+         ========================================== -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTKER7NZMF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LTKER7NZMF');
+    </script>
+    <!-- ==========================================
+         FIM DO CÓDIGO GOOGLE ANALYTICS (GA4)
+         ========================================== -->
+
+    <!-- Carrega o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega os Ícones (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        
+        /* Barra de Rolagem Premium (Global) */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #E3DBD0; }
+        ::-webkit-scrollbar-thumb { background: #c28c1c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B07905; }
+
+        /* Efeito de Iluminação Suave (Shimmer) no Texto */
+        .gradient-text {
+            background: linear-gradient(
+                110deg, 
+                #B07905 0%, 
+                #B07905 40%, 
+                #D99D1C 50%, /* Brilho muito subtil, muito mais próximo da cor original */
+                #B07905 60%, 
+                #B07905 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 12s linear infinite; /* Animação ajustada para 12s para maior suavidade */
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        /* Animação suave para o fundo do Hero (Ken Burns) */
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .animate-ken-burns {
+            animation: kenBurns 25s ease-in-out infinite;
+        }
+        
+        /* Animação de flutuação para as ondas sonoras do fundo */
+        @keyframes floatWave {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            50% { transform: translateY(-12px) scaleY(1.02); }
+        }
+        .animate-float-wave {
+            animation: floatWave 8s ease-in-out infinite;
+        }
+
+        /* Animação de entrada suave (Hero) - Efeito Cinematográfico */
+        @keyframes fadeInUpHero {
+            from { opacity: 0; transform: translateY(20px); filter: blur(3px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUpHero 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 500ms; }
+        .delay-500 { animation-delay: 800ms; }
+
+        /* Ocultar barra de rolagem em elementos com scroll horizontal (mobile) */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Classes para animação de scroll (Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- OTIMIZAÇÃO GEO: Schema Markup para Local Business e FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Itex Brasil - Soluções Acústicas",
+      "image": "https://itexbrasil.com.br/assets/logotipo-itex-brasil-isolamento-acustico-sao-paulo.webp",
+      "@id": "https://itexbrasil.com.br",
+      "url": "https://itexbrasil.com.br",
+      "telephone": "+5511982342858",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua das Jaboticabeiras, 235",
+        "addressLocality": "Cotia",
+        "addressRegion": "SP",
+        "postalCode": "06709-000",
+        "addressCountry": "BR"
+      },
+      "description": "Especialistas em montagem de projetos de isolamento e tratamento acústico de alta performance em São Paulo. Estúdios, residências e corporativo.",
+      "sameAs": [
+        "https://wa.me/5511982342858"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Qual a diferença fundamental entre isolamento e tratamento acústico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O isolamento impede a transmissão do som entre ambientes (ex.: ruído de vizinhos). O tratamento melhora a qualidade sonora interna (reduz ecos e reverberação)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Vocês fornecem laudos técnicos acústicos obrigatórios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Coordenamos a medição e a emissão de laudos técnicos conforme as normas ABNT NBR 10151 e NBR 10152, válidos para processos junto a órgãos municipais."
+        }
+      }]
+    }
+    </script>
+</head>
+<body class="bg-[#E3DBD0] text-slate-800 antialiased overflow-x-hidden selection:bg-[#B07905] selection:text-white">
+
+    <!-- ==========================================
+         1. BARRA DE NAVEGAÇÃO (NAVBAR)
+         ========================================== -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-[#E3DBD0]/95 backdrop-blur-md border-b border-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <a href="#inicio" aria-label="Voltar ao início" class="transition-transform hover:scale-105 duration-500 block font-bold text-xl text-[#233d4d]">
+                        <!-- Logotipo atualizado com caminho local -->
+                        <img src="logotipo-itex-brasil-isolamento-acustico-sao-paulo.webp" alt="Itex Acústica" class="h-10 w-auto" onerror="this.outerHTML='<span class=\'text-[#233d4d] font-bold text-xl\'>ITEX BRASIL</span>'">
+                    </a>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-12 items-center">
+                    <a href="#inicio" class="text-base font-medium text-slate-800 hover:text-[#B07905] transition-colors duration-300">Início</a>
+                    <a href="#solucoes" class="text-base font-medium text-slate-700 hover:text-[#B07905] transition-colors duration-300">Soluções</a>
+                    <a href="#diferenciais" class="text-base font-medium text-slate-700 hover:text-[#B07905] transition-colors duration-300">Diferenciais</a>
+                    <a href="#faq" class="text-base font-medium text-slate-700 hover:text-[#B07905] transition-colors duration-300">FAQs</a>
+                    <a href="#contato" class="text-base font-medium text-slate-700 hover:text-[#B07905] transition-colors duration-300">Contato</a>
+                </div>
+                
+                <!-- CTA Desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="bg-[#B07905] hover:bg-[#8F6204] text-white px-5 py-2.5 rounded-md font-medium text-base flex items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5 shadow-md shadow-[#B07905]/30">
+                        <!-- Logótipo WhatsApp em SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-4 h-4" aria-hidden="true"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.004-3.622 2.95-6.57 6.574-6.57 1.755.001 3.404.686 4.643 1.926a6.57 6.57 0 0 1 1.922 4.646c-.004 3.623-2.95 6.57-6.574 6.571zM11.596 9.601c-.197-.099-1.17-.578-1.352-.644-.182-.066-.315-.099-.448.099-.133.197-.513.644-.627.777-.114.133-.23.149-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.114-.198-.011-.304.088-.403.089-.09.197-.23.296-.346.099-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.448-1.08-.613-1.48-.16-.389-.323-.335-.448-.34-.114-.004-.247-.005-.38-.005a.73.73 0 0 0-.528.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.054 1.17-.478 1.334-.94.164-.462.164-.858.115-.94-.05-.082-.182-.133-.38-.232z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" class="text-slate-800 hover:text-[#B07905] focus:outline-none p-2 transition-colors">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#E3DBD0] border-t border-slate-300 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+                <a href="#inicio" class="mobile-link block px-3 py-3 text-lg font-medium text-slate-800 hover:bg-slate-200/50 rounded-md transition-colors">Início</a>
+                <a href="#solucoes" class="mobile-link block px-3 py-3 text-lg font-medium text-slate-800 hover:bg-slate-200/50 rounded-md transition-colors">Soluções</a>
+                <a href="#diferenciais" class="mobile-link block px-3 py-3 text-lg font-medium text-slate-800 hover:bg-slate-200/50 rounded-md transition-colors">Diferenciais</a>
+                <a href="#faq" class="mobile-link block px-3 py-3 text-lg font-medium text-slate-800 hover:bg-slate-200/50 rounded-md transition-colors">FAQs</a>
+                <a href="#contato" class="mobile-link block px-3 py-3 text-lg font-medium text-slate-800 hover:bg-slate-200/50 rounded-md mb-4 transition-colors">Contato</a>
+                <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="bg-[#B07905] text-white px-5 py-3 rounded-md font-medium text-lg flex items-center justify-center gap-2 shadow-md hover:bg-[#8F6204] transition-colors">
+                    <!-- Logótipo WhatsApp em SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-5 h-5" aria-hidden="true"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.004-3.622 2.95-6.57 6.574-6.57 1.755.001 3.404.686 4.643 1.926a6.57 6.57 0 0 1 1.922 4.646c-.004 3.623-2.95 6.57-6.574 6.571zM11.596 9.601c-.197-.099-1.17-.578-1.352-.644-.182-.066-.315-.099-.448.099-.133.197-.513.644-.627.777-.114.133-.23.149-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.114-.198-.011-.304.088-.403.089-.09.197-.23.296-.346.099-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.448-1.08-.613-1.48-.16-.389-.323-.335-.448-.34-.114-.004-.247-.005-.38-.005a.73.73 0 0 0-.528.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.054 1.17-.478 1.334-.94.164-.462.164-.858.115-.94-.05-.082-.182-.133-.38-.232z"/></svg>
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         2. BANNER PRINCIPAL (HERO)
+         ========================================== -->
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#0f1a21] text-white flex items-center min-h-[90vh] lg:min-h-[85vh]">
+        
+        <!-- Esfera de luz desfocada para dar destaque ao texto -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[400px] bg-[#B07905]/10 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
+
+        <div class="absolute inset-0 z-0">
+            <!-- Imagem de Fundo atualizada com o caminho local da onda sonora abstrata e animação Ken Burns -->
+            <img src="execucao-montagem-projeto-conforto-acustico-itex-brasil-sao-paulo-sp.webp" alt="Projeto Acústico Itex Brasil" class="w-full h-full object-cover opacity-[0.10] mix-blend-luminosity animate-ken-burns">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1a21] via-[#0f1a21]/60 to-transparent opacity-90 pointer-events-none"></div>
+        </div>
+        
+        <div class="absolute inset-0 opacity-20 pointer-events-none animate-float-wave z-0">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full" aria-hidden="true">
+                <path d="M0,50 Q25,25 50,50 T100,50 L100,100 L0,100 Z" fill="#B07905" opacity="0.1"></path>
+                <path d="M0,70 Q30,40 60,70 T100,70 L100,100 L0,100 Z" fill="#B07905" opacity="0.15"></path>
+            </svg>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl md:leading-tight lg:leading-tight font-light tracking-tight mb-6 drop-shadow-lg animate-fade-in-up delay-100">
+                Inteligência Acústica para espaços <br class="hidden md:block"/>
+                <span class="gradient-text font-medium">mais humanos, focados e eficientes</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-white max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md animate-fade-in-up delay-300">
+                Com foco em São Paulo e Grande SP. Realizamos a montagem completa de projetos de alta performance para residências, estúdios e empresas, garantindo o conforto acústico ideal.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up delay-500">
+                <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="bg-[#B07905] hover:bg-[#8F6204] text-white px-8 py-4 rounded-md font-medium text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-[#B07905]/25 flex items-center justify-center">
+                    Garanta seu Conforto Acústico
+                </a>
+                <a href="#solucoes" class="border border-slate-400 hover:border-white hover:bg-[#1A2E3A] text-white px-8 py-4 rounded-md font-medium text-lg transition-all duration-300 flex items-center justify-center">
+                    Ver Soluções Técnicas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3. SOLUÇÕES (CARROSSEL INTERATIVO)
+         ========================================== -->
+    <section id="solucoes" class="pt-24 pb-24 bg-slate-50 scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Introdução -->
+            <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-medium text-slate-800">Nossas Soluções em Isolamento e Tratamento Acústico</h2>
+                <p class="mt-4 text-slate-600 font-light text-lg">Especialistas em montagem de projetos acústicos em SP e Grande SP. Instalamos soluções sob medida para reduzir ruídos e garantir o resultado acústico ideal.</p>
+            </div>
+            
+            <!-- Pílulas (Botões do Carrossel) -->
+            <div class="flex overflow-x-auto hide-scrollbar pb-4 mb-8 justify-start lg:justify-center reveal w-full" role="tablist">
+                <div class="inline-flex p-1.5 bg-slate-200/60 rounded-full border border-slate-200/50 min-w-max" id="carousel-buttons">
+                    <button type="button" role="tab" aria-selected="true" data-index="0" class="carousel-btn px-6 py-2.5 bg-white text-[#B07905] shadow-md scale-105 rounded-full font-medium text-sm transition-all duration-300">Estúdios</button>
+                    <button type="button" role="tab" aria-selected="false" data-index="1" class="carousel-btn px-6 py-2.5 text-slate-500 hover:text-slate-800 scale-100 rounded-full font-medium text-sm transition-all duration-300">Corporativo</button>
+                    <button type="button" role="tab" aria-selected="false" data-index="2" class="carousel-btn px-6 py-2.5 text-slate-500 hover:text-slate-800 scale-100 rounded-full font-medium text-sm transition-all duration-300">Residencial</button>
+                    <button type="button" role="tab" aria-selected="false" data-index="3" class="carousel-btn px-6 py-2.5 text-slate-500 hover:text-slate-800 scale-100 rounded-full font-medium text-sm transition-all duration-300">Áreas Técnicas</button>
+                    <button type="button" role="tab" aria-selected="false" data-index="4" class="carousel-btn px-6 py-2.5 text-slate-500 hover:text-slate-800 scale-100 rounded-full font-medium text-sm transition-all duration-300">Lazer & Cultura</button>
+                </div>
+            </div>
+
+            <!-- Pista do Carrossel (Slider Track) - Transição fluída (Overlay Grid) -->
+            <div class="relative w-full reveal rounded-2xl">
+                <div id="carousel-track" class="grid grid-cols-1 grid-rows-1 relative w-full">
+                    
+                    <!-- SLIDE 0: Estúdios -->
+                    <div class="carousel-slide col-start-1 row-start-1 w-full px-2 sm:px-0 transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] opacity-100 scale-100 translate-y-0 z-10 pointer-events-auto">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl group mb-8 lg:mb-0 bg-slate-200">
+                                <img src="montagem-isolamento-acustico-estudio-sao-paulo.webp" alt="Estúdio Acústico" class="w-full aspect-video lg:aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                                <div class="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none"></div>
+                            </div>
+                            <div class="px-2 lg:px-0">
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E3DBD0]/50 text-[#B07905] text-xs font-semibold uppercase tracking-wider mb-4 lg:mb-6">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5"></i> Setor Audiovisual
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-semibold text-[#233d4d] mb-6 leading-tight">Estúdios: Máxima Precisão Sonora e Isolamento Total</h3>
+                                <ul class="space-y-4 lg:space-y-6 mb-8">
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Projetos completos que garantem a precisão ideal para mixagem e masterização.</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Inclui isolamento box-in-box para máxima redução sonora, tratamento interno (difusores, bass traps).</p>
+                                    </li>
+                                </ul>
+                                <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="inline-flex w-full md:w-auto items-center justify-center px-8 py-4 rounded-lg text-white bg-[#B07905] hover:bg-[#8F6204] shadow-lg shadow-[#B07905]/20 transition-all duration-300 hover:-translate-y-1">Transforme Seu Estúdio HOJE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 1: Corporativo -->
+                    <div class="carousel-slide col-start-1 row-start-1 w-full px-2 sm:px-0 transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] opacity-0 scale-[0.97] translate-y-8 z-0 pointer-events-none">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl group mb-8 lg:mb-0 lg:order-2 bg-slate-200">
+                                <img src="montagem-acustica-escritorio-corporativo-sao-paulo.webp" alt="Ambiente Corporativo" class="w-full aspect-video lg:aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                                <div class="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none"></div>
+                            </div>
+                            <div class="lg:order-1 px-2 lg:px-0">
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E3DBD0]/50 text-[#B07905] text-xs font-semibold uppercase tracking-wider mb-4 lg:mb-6">
+                                    <i data-lucide="briefcase" class="w-3.5 h-3.5"></i> Ambientes de Trabalho
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-semibold text-[#233d4d] mb-6 leading-tight">Empresas: Conforto e Produtividade Imediatos</h3>
+                                <ul class="space-y-4 lg:space-y-6 mb-8">
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Soluções para aumentar a productivity e privacidade em salas de reunião, auditórios e open spaces.</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Tratamento de salas de videoconferência, divisórias acústicas e consultoria corporativa.</p>
+                                    </li>
+                                </ul>
+                                <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="inline-flex w-full md:w-auto items-center justify-center px-8 py-4 rounded-lg text-white bg-[#B07905] hover:bg-[#8F6204] shadow-lg shadow-[#B07905]/20 transition-all duration-300 hover:-translate-y-1">Avaliação para Empresas</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2: Residencial -->
+                    <div class="carousel-slide col-start-1 row-start-1 w-full px-2 sm:px-0 transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] opacity-0 scale-[0.97] translate-y-8 z-0 pointer-events-none">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl group mb-8 lg:mb-0 bg-slate-200">
+                                <img src="instalacao-isolamento-acustico-residencial-sao-paulo.webp" alt="Conforto Residencial" class="w-full aspect-video lg:aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                                <div class="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none"></div>
+                            </div>
+                            <div class="px-2 lg:px-0">
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E3DBD0]/50 text-[#B07905] text-xs font-semibold uppercase tracking-wider mb-4 lg:mb-6">
+                                    <i data-lucide="home" class="w-3.5 h-3.5"></i> Conforto Residencial
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-semibold text-[#233d4d] mb-6 leading-tight">Residências: Paz e Silêncio Garantidos em Casa</h3>
+                                <ul class="space-y-4 lg:space-y-6 mb-8">
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Soluções eficazes contra ruído de vizinhos, trânsito e impacto de lajes.</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Isolamento de paredes, pisos, forros e janelas acústicas, com alternativas de obras secas.</p>
+                                    </li>
+                                </ul>
+                                <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="inline-flex w-full md:w-auto items-center justify-center px-8 py-4 rounded-lg text-white bg-[#B07905] hover:bg-[#8F6204] shadow-lg shadow-[#B07905]/20 transition-all duration-300 hover:-translate-y-1">Comece Seu Isolamento Agora</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3: Áreas Técnicas -->
+                    <div class="carousel-slide col-start-1 row-start-1 w-full px-2 sm:px-0 transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] opacity-0 scale-[0.97] translate-y-8 z-0 pointer-events-none">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl group mb-8 lg:mb-0 lg:order-2 bg-slate-200">
+                                <img src="lajes-areas-tecnicas-solucoes-industriais-sao-paulo.webp" alt="Áreas Técnicas e Lajes" class="w-full aspect-video lg:aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                                <div class="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none"></div>
+                            </div>
+                            <div class="lg:order-1 px-2 lg:px-0">
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E3DBD0]/50 text-[#B07905] text-xs font-semibold uppercase tracking-wider mb-4 lg:mb-6">
+                                    <i data-lucide="settings" class="w-3.5 h-3.5"></i> Estruturas Técnicas
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-semibold text-[#233d4d] mb-6 leading-tight">Lajes e Áreas Técnicas: Controle de Ruído e Vibração</h3>
+                                <ul class="space-y-4 lg:space-y-6 mb-8">
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Plataformas antivibração para condensadoras de ar-condicionado.</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed">Instalação de mangotes flexíveis e isolamento em casas de máquinas.</p>
+                                    </li>
+                                </ul>
+                                <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="inline-flex w-full md:w-auto items-center justify-center px-8 py-4 rounded-lg text-white bg-[#B07905] hover:bg-[#8F6204] shadow-lg shadow-[#B07905]/20 transition-all duration-300 hover:-translate-y-1">Avaliação Técnica Imediata</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 4: Lazer e Cultura -->
+                    <div class="carousel-slide col-start-1 row-start-1 w-full px-2 sm:px-0 transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] opacity-0 scale-[0.97] translate-y-8 z-0 pointer-events-none">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl group mb-8 lg:mb-0 bg-slate-200">
+                                <img src="montagem-isolamento-acustico-lazer-cultura-sao-paulo.webp" alt="Anfiteatro" class="w-full aspect-video lg:aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                                <div class="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none"></div>
+                            </div>
+                            <div class="px-2 lg:px-0">
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E3DBD0]/50 text-[#B07905] text-xs font-semibold uppercase tracking-wider mb-4 lg:mb-6">
+                                    <i data-lucide="music" class="w-3.5 h-3.5"></i> Lazer e Entretenimento
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-semibold text-[#233d4d] mb-6 leading-tight">Acústica para Lazer, Cultura e Entretenimento</h3>
+                                <ul class="space-y-4 lg:space-y-6 mb-8">
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed"><strong class="font-medium text-[#233d4d]">Auditórios e Centros Culturais:</strong> Condicionamento acústico de alta performance (Anfiteatro USP).</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#B07905]/10 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-4 h-4 text-[#B07905]"></i></div>
+                                        <p class="ml-4 text-slate-700 font-light leading-relaxed"><strong class="font-medium text-[#233d4d]">Hospitalidade:</strong> Tratamento de reverberação para hotéis, restaurantes e lounges.</p>
+                                    </li>
+                                </ul>
+                                <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" class="inline-flex w-full md:w-auto items-center justify-center px-8 py-4 rounded-lg text-white bg-[#B07905] hover:bg-[#8F6204] shadow-lg shadow-[#B07905]/20 transition-all duration-300 hover:-translate-y-1">Consultoria de Experiência</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. ECOSSISTEMA DE ESPECIALISTAS
+         ========================================== -->
+    <section id="diferenciais" class="py-24 bg-[#233d4d] text-white scroll-mt-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-[#B07905]/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-white/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-light mb-6 text-[#B07905]">Nosso Ecossistema de Especialistas</h2>
+                <p class="text-slate-300 text-lg font-light leading-relaxed">
+                    Para garantir a excelência em todas as etapas — do projeto à execução. <br class="hidden md:block"/>
+                    Contamos com parceiros estratégicos que são referência e autoridade em suas respectivas áreas de atuação.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Card 1 -->
+                <div class="bg-[#1A2E3A] border border-slate-600/50 p-8 md:p-10 rounded-2xl hover:border-[#B07905] transition-all duration-500 group shadow-xl hover:shadow-[0_8px_30px_rgba(176,121,5,0.15)] hover:-translate-y-2 reveal">
+                    <div class="w-14 h-14 bg-[#233d4d] border border-slate-600/50 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                        <i data-lucide="pen-tool" class="w-7 h-7 text-[#B07905]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Arquitetura Acústica Independente</h3>
+                    <p class="text-sm text-[#B07905] font-medium uppercase tracking-widest mb-6">A ciência por trás da nossa execução</p>
+                    <div class="space-y-4 text-slate-300 font-light leading-relaxed">
+                        <p>Para garantir a máxima excelência, nossas soluções são guiadas por projetos e laudos técnicos desenvolvidos por consultorias de arquitetura acústicas especializadas e independentes.</p>
+                        <p>Essa união de forças garante que você receba o melhor dos dois mundos: o rigor analítico do projeto arquitetônico acústico e a precisão milimétrica da nossa equipe de execução, 100% alinhado às normas técnicas <strong>(ABNT NBR 10151 e NBR 10152)</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-[#1A2E3A] border border-slate-600/50 p-8 md:p-10 rounded-2xl hover:border-[#B07905] transition-all duration-500 group shadow-xl hover:shadow-[0_8px_30px_rgba(176,121,5,0.15)] hover:-translate-y-2 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-[#233d4d] border border-slate-600/50 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                        <i data-lucide="hammer" class="w-7 h-7 text-[#B07905]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Vega Montagens: Alta Performance</h3>
+                    <p class="text-sm text-[#B07905] font-medium uppercase tracking-widest mb-6">A precisão técnica no canteiro de obras</p>
+                    <div class="space-y-4 text-slate-300 font-light leading-relaxed">
+                        <p>Se a engenharia independente garante a ciência por trás do projeto, a Vega Montagens garante a sua materialização impecável. Especializada exclusivamente na execução e montagem de sistemas de isolamento.</p>
+                        <p>O foco da Vega é assegurar que cada detalhe técnico especificado no laudo seja implementado com rigor milimétrico. É essa mão de obra especializada que elimina falhas de execução.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. PERGUNTAS FREQUENTES (FAQ)
+         ========================================== -->
+    <section id="faq" class="py-24 bg-[#F2EDE4] scroll-mt-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-light text-center text-[#233d4d] mb-12 reveal">Perguntas Frequentes</h2>
+            
+            <div class="space-y-4 reveal">
+                <!-- FAQ 1 -->
+                <div class="border border-slate-300 rounded-xl bg-white/70 hover:bg-white transition-colors duration-300 overflow-hidden shadow-sm">
+                    <button type="button" aria-expanded="false" class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-medium text-[#233d4d] pr-4 group-hover:text-[#B07905] transition-colors">1. Qual a diferença fundamental entre isolamento e tratamento acústico?</span>
+                        <div class="w-8 h-8 rounded-full bg-[#E3DBD0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#B07905]/10 transition-colors">
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-[#B07905] transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-700 font-light hidden">
+                        O <strong class="font-medium text-slate-800">isolamento</strong> impede a transmissão do som entre ambientes (ex.: ruído de vizinhos). O <strong class="font-medium text-slate-800">tratamento</strong> melhora a qualidade sonora interna (reduz ecos e reverberação).
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-slate-300 rounded-xl bg-white/70 hover:bg-white transition-colors duration-300 overflow-hidden shadow-sm">
+                    <button type="button" aria-expanded="false" class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-medium text-[#233d4d] pr-4 group-hover:text-[#B07905] transition-colors">2. Qual é o prazo de execução de um projeto de isolamento acústico?</span>
+                        <div class="w-8 h-8 rounded-full bg-[#E3DBD0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#B07905]/10 transition-colors">
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-[#B07905] transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-700 font-light hidden">
+                        O tempo varia conforme o escopo. Intervenções menores são rápidas, mas obras estruturais exigem cronograma. Sempre oferecemos uma visita técnica para estimativa precisa do prazo.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-slate-300 rounded-xl bg-white/70 hover:bg-white transition-colors duration-300 overflow-hidden shadow-sm">
+                    <button type="button" aria-expanded="false" class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-medium text-[#233d4d] pr-4 group-hover:text-[#B07905] transition-colors">3. Vocês fornecem laudos técnicos obrigatórios para a Prefeitura?</span>
+                        <div class="w-8 h-8 rounded-full bg-[#E3DBD0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#B07905]/10 transition-colors">
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-[#B07905] transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-700 font-light hidden">
+                        Sim. Coordenamos a medição sonora e a emissão de laudos e relatórios técnicos conforme as diretrizes e exigências das normas <strong>ABNT NBR 10151 e NBR 10152</strong> com nossos parceiros, válidos para processos de alvará e licenças junto a órgãos municipais.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-slate-300 rounded-xl bg-white/70 hover:bg-white transition-colors duration-300 overflow-hidden shadow-sm">
+                    <button type="button" aria-expanded="false" class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-medium text-[#233d4d] pr-4 group-hover:text-[#B07905] transition-colors">4. Como agendar uma visita técnica?</span>
+                        <div class="w-8 h-8 rounded-full bg-[#E3DBD0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#B07905]/10 transition-colors">
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-[#B07905] transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-700 font-light hidden">
+                        Basta entrar em contato pelo WhatsApp ou preencher o formulário abaixo. Avaliamos suas necessidades e agendamos a visita para orçamento.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         6. QUEM SOMOS
+         ========================================== -->
+    <section id="quemsomos" class="py-24 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-start">
+                
+                <div class="lg:col-span-5 mb-10 lg:mb-0 reveal">
+                    <h2 class="text-sm font-semibold text-[#B07905] uppercase tracking-widest mb-2">Quem Somos</h2>
+                    <h3 class="text-3xl md:text-4xl font-light text-[#233d4d] mb-8 leading-tight">A trajetória da excelência sonora.</h3>
+                    
+                    <div class="p-8 bg-[#E3DBD0]/30 border border-[#E3DBD0] rounded-2xl relative overflow-hidden group hover:bg-[#E3DBD0]/50 transition-colors duration-500">
+                        <i data-lucide="quote" class="absolute top-4 right-4 w-16 h-16 text-[#B07905] opacity-20 transform group-hover:scale-110 transition-transform duration-500"></i>
+                        <p class="text-6xl font-light text-[#233d4d] mb-2 tracking-tighter">1994</p>
+                        <p class="text-sm text-[#B07905] font-medium uppercase tracking-wide">Ano de Origem</p>
+                        <p class="text-slate-600 font-light mt-5 relative z-10 leading-relaxed text-lg">
+                            Trajetória consolidada no mercado de áudio profissional de alta performance, fornecendo a melhor tecnologia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 text-slate-700 font-light leading-relaxed text-lg space-y-5 reveal" style="transition-delay: 200ms;">
+                    <p>A <strong class="font-medium text-[#233d4d]">Itex Acústica</strong> não é apenas uma executora de obras. Somos especialistas em som.</p>
+                    <p>Como Itex Brasil, construímos nossa reputação representando gigantes globais da tecnologia sonora, como <em>Beyerdynamic, Sennheiser, Universal Audio e Avid</em>.</p>
+                    <p>Durante décadas fornecendo equipamentos, entendemos que <strong class="font-medium text-[#233d4d]">mesmo a melhor tecnologia perde sua eficácia em um ambiente acusticamente comprometido.</strong> Em 2025, formalizamos essa expertise criando nossa divisão dedicada a Soluções Acústicas.</p>
+                    
+                    <div class="bg-[#1A2E3A] p-8 mt-10 rounded-2xl shadow-xl border-l-4 border-[#B07905] hover:shadow-[0_15px_40px_rgba(176,121,5,0.15)] transition-all duration-500 hover:-translate-y-1">
+                        <h4 class="text-[#B07905] font-medium text-xl mb-4">Por que isso importa para sua empresa?</h4>
+                        <p class="text-slate-300 font-light leading-relaxed mb-4">
+                            Diferente de empreiteiras generalistas, nós traduzimos projetos complexos em realidade com o rigor técnico de quem lida com precisão sonora. Não entregamos apenas "materiais instalados"; entregamos a fidelidade ao projeto.
+                        </p>
+                        <p class="text-white font-medium">Somos parceiros estratégicos para negócios que não podem errar no conforto acústico.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         7. CONTATO (FORMULÁRIO)
+         ========================================== -->
+    <section id="contato" class="py-24 bg-slate-50 scroll-mt-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="text-3xl md:text-4xl font-light text-[#233d4d] mb-6">Solicite seu Orçamento</h2>
+            <p class="text-slate-600 font-light mb-10 text-lg">
+                Tem um projeto ou precisa resolver um problema de ruído?<br>
+                Fale com a Itex Brasil.
+            </p>
+            <form id="contact-form" action="https://formspree.io/f/meopeank" method="POST" class="space-y-5 text-left bg-white p-6 md:p-10 rounded-2xl shadow-lg border border-slate-100">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label for="form-nome" class="block text-sm font-medium text-slate-700 mb-1.5">Nome Completo</label>
+                        <input type="text" id="form-nome" name="nome" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#B07905] focus:border-[#B07905] outline-none transition-all duration-300 bg-slate-50 focus:bg-white" placeholder="Seu nome">
+                    </div>
+                    <div>
+                        <label for="form-email" class="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+                        <input type="email" id="form-email" name="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#B07905] focus:border-[#B07905] outline-none transition-all duration-300 bg-slate-50 focus:bg-white" placeholder="seu@email.com.br">
+                    </div>
+                </div>
+                <div>
+                    <label for="form-mensagem" class="block text-sm font-medium text-slate-700 mb-1.5">Como podemos ajudar?</label>
+                    <textarea id="form-mensagem" name="mensagem" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#B07905] focus:border-[#B07905] outline-none transition-all duration-300 bg-slate-50 focus:bg-white resize-none" placeholder="Descreva brevemente sua necessidade acústica..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-[#B07905] hover:bg-[#8F6204] text-white font-medium py-4 rounded-lg transition-all duration-300 shadow-lg shadow-[#B07905]/20 mt-2 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#B07905]">
+                    Solicitar Orçamento
+                </button>
+                <p id="form-status" class="hidden"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         RODAPÉ (FOOTER)
+         ========================================== -->
+    <footer class="bg-[#233d4d] py-12 border-t-[4px] border-[#B07905]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-6">
+                <div class="lg:col-span-4 flex flex-col space-y-4 lg:pr-12">
+                    <!-- Logotipo atualizado com caminho local no rodapé -->
+                    <img src="logotipo-itex-brasil-isolamento-acustico-sao-paulo.webp" alt="Itex Brasil" class="h-10 w-auto opacity-90 self-start" loading="lazy" onerror="this.outerHTML='<span class=\'text-white font-bold text-xl\'>ITEX BRASIL</span>'">
+                    <p class="text-slate-300 font-light text-sm leading-relaxed pr-4">
+                        Inteligência Acústica para espaços mais humanos, focados e eficientes.
+                    </p>
+                </div>
+                
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-semibold text-base mb-4">Navegação</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#inicio" class="text-slate-400 hover:text-[#B07905] font-light text-sm transition-colors duration-300">Início</a></li>
+                        <li><a href="#solucoes" class="text-slate-400 hover:text-[#B07905] font-light text-sm transition-colors duration-300">Soluções</a></li>
+                        <li><a href="#diferenciais" class="text-slate-400 hover:text-[#B07905] font-light text-sm transition-colors duration-300">Diferenciais</a></li>
+                        <li><a href="#faq" class="text-slate-400 hover:text-[#B07905] font-light text-sm transition-colors duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-base mb-4">Contato</h4>
+                    <ul class="space-y-2.5">
+                        <li class="text-slate-400 font-light text-sm flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-[#B07905]"></i> atendimento@itexbrasil.com.br
+                        </li>
+                        <li class="text-slate-400 font-light text-sm flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-[#B07905]"></i> +55 11 98234-2858
+                        </li>
+                        <li class="text-slate-400 font-light text-sm flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-[#B07905]"></i> Seg-Sex: 09:00–18:00
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-semibold text-base mb-4">Localização</h4>
+                    <ul class="space-y-2.5">
+                        <li class="text-slate-400 font-light text-sm leading-relaxed flex items-start gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-[#B07905] mt-1 flex-shrink-0"></i>
+                            <span>Rua das Jaboticabeiras, 235<br>Jardim da Gloria, Cotia - SP</span>
+                        </li>
+                        <li class="text-slate-400 font-light text-sm pl-6">CNPJ: 15.381.343/0001-10</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="w-full border-t border-slate-600/50 mt-12 pt-6 text-center">
+                <p class="text-slate-400 font-light text-xs">© 2026 Itex Brasil — Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511982342858" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[#25D366]/40 transition-all duration-500 flex items-center justify-center group">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="transform group-hover:rotate-12 transition-transform duration-500" aria-hidden="true">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.004-3.622 2.95-6.57 6.574-6.57 1.755.001 3.404.686 4.643 1.926a6.57 6.57 0 0 1 1.922 4.646c-.004 3.623-2.95 6.57-6.574 6.571zM11.596 9.601c-.197-.099-1.17-.578-1.352-.644-.182-.066-.315-.099-.448.099-.133.197-.513.644-.627.777-.114.133-.23.149-.427.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.114-.198-.011-.304.088-.403.089-.09.197-.23.296-.346.099-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.448-1.08-.613-1.48-.16-.389-.323-.335-.448-.34-.114-.004-.247-.005-.38-.005a.73.73 0 0 0-.528.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.054 1.17-.478 1.334-.94.164-.462.164-.858.115-.94-.05-.082-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Renderiza os ícones de forma segura
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // 2. Lógica do Header (Efeito Glass ao fazer Scroll)
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (!nav) return;
+            if (window.scrollY > 20) {
+                nav.classList.add('bg-[#E3DBD0]/80', 'backdrop-blur-lg', 'shadow-sm');
+                nav.classList.remove('bg-[#E3DBD0]/95', 'backdrop-blur-md');
+            } else {
+                nav.classList.add('bg-[#E3DBD0]/95', 'backdrop-blur-md');
+                nav.classList.remove('bg-[#E3DBD0]/80', 'backdrop-blur-lg', 'shadow-sm');
+            }
+        });
+
+        // 2.1 Lógica do Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
+            });
+
+            // Fecha o menu ao clicar em um link (mobile)
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // 3. Lógica do FAQ (Accordion)
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                
+                // Fechar todos os outros
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    if(ans !== answer && !ans.classList.contains('hidden')) {
+                        ans.classList.add('hidden');
+                        ans.previousElementSibling.setAttribute('aria-expanded', 'false');
+                        ans.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate-180');
+                    }
+                });
+
+                // Alternar o atual
+                if(answer) answer.classList.toggle('hidden');
+                button.setAttribute('aria-expanded', !isExpanded);
+                if(icon) icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // 4. Lógica do CARROSSEL DE SOLUÇÕES 
+        const buttons = document.querySelectorAll('.carousel-btn');
+        const track = document.getElementById('carousel-track');
+        let currentIndex = 0;
+
+        // Classes de estilo aprimoradas para transição suave
+        const activeClasses = ['bg-white', 'text-[#B07905]', 'shadow-md', 'scale-105'];
+        const inactiveClasses = ['text-slate-500', 'hover:text-slate-800', 'scale-100'];
+
+        function goToSlide(index) {
+            if (!track) return;
+            currentIndex = parseInt(index);
+
+            // Atualiza botões
+            buttons.forEach(btn => {
+                btn.classList.remove(...activeClasses);
+                btn.classList.add(...inactiveClasses);
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            const activeButton = document.querySelector(`.carousel-btn[data-index="${currentIndex}"]`);
+            if(activeButton){
+                activeButton.classList.remove(...inactiveClasses);
+                activeButton.classList.add(...activeClasses);
+                activeButton.setAttribute('aria-selected', 'true');
+                // Centraliza o botão no mobile (scroll horizontal)
+                activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+            // Efeito "Surgir": Atualiza opacidade, escala e transição vertical dos slides
+            const activeSlideClasses = ['opacity-100', 'scale-100', 'translate-y-0', 'z-10', 'pointer-events-auto'];
+            const inactiveSlideClasses = ['opacity-0', 'scale-[0.97]', 'translate-y-8', 'z-0', 'pointer-events-none'];
+
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides.forEach((slide, i) => {
+                if(i === currentIndex) {
+                    slide.classList.remove(...inactiveSlideClasses);
+                    slide.classList.add(...activeSlideClasses);
+                } else {
+                    slide.classList.remove(...activeSlideClasses);
+                    slide.classList.add(...inactiveSlideClasses);
+                }
+            });
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                goToSlide(button.getAttribute('data-index'));
+            });
+        });
+
+        // 4.1 Adicionando Swipe (Arrastar) para o Carrossel no Mobile de forma segura
+        if (track) {
+            let startX = 0;
+            let isDragging = false;
+
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            }, {passive: true});
+
+            track.addEventListener('touchmove', (e) => {
+                if(!isDragging) return;
+            }, {passive: true});
+
+            track.addEventListener('touchend', (e) => {
+                if(!isDragging) return;
+                let endX = e.changedTouches[0].clientX;
+                let diffX = startX - endX;
+
+                // Limiar de 50px para considerar um swipe
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0 && currentIndex < 4) {
+                        // Swipe para a esquerda (próximo slide)
+                        goToSlide(currentIndex + 1);
+                    } else if (diffX < 0 && currentIndex > 0) {
+                        // Swipe para a direita (slide anterior)
+                        goToSlide(currentIndex - 1);
+                    }
+                }
+                isDragging = false;
+            });
+        }
+
+        // 5. Scroll Reveal Animation (Refinado para IntersectionObserver - Melhor Performance)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -100px 0px', // Distância para ativar
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // 6. Lógica de Envio do Formulário (Formspree via AJAX)
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Impede o redirecionamento da página
+                
+                // Muda o texto do botão para indicar carregamento
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = 'Enviando...';
+                submitBtn.disabled = true;
+
+                const data = new FormData(contactForm);
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: contactForm.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Sucesso
+                        if(formStatus) {
+                            formStatus.innerText = "Mensagem enviada com sucesso!";
+                            formStatus.className = "mt-4 text-center text-sm font-medium text-[#B07905] block";
+                        }
+                        contactForm.reset(); // Limpa o formulário
+                        
+                        // DISPARO DE EVENTO GA4: Formulário enviado com sucesso
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'generate_lead', {
+                                'event_category': 'formulario',
+                                'event_label': 'Contato Site'
+                            });
+                        }
+                    } else {
+                        // Erro retornado pela API
+                        const responseData = await response.json();
+                        if (formStatus) {
+                            if (Object.hasOwn(responseData, 'errors')) {
+                                formStatus.innerText = responseData.errors.map(error => error.message).join(", ");
+                            } else {
+                                formStatus.innerText = "Ocorreu um erro ao enviar sua mensagem. Tente novamente.";
+                            }
+                            formStatus.className = "mt-4 text-center text-sm font-medium text-red-600 block";
+                        }
+                    }
+                } catch (error) {
+                    // Erro de rede/conexão
+                    if(formStatus) {
+                        formStatus.innerText = "Ocorreu um erro na conexão. Verifique sua internet e tente novamente.";
+                        formStatus.className = "mt-4 text-center text-sm font-medium text-red-600 block";
+                    }
+                } finally {
+                    // Restaura o botão ao estado original
+                    if(submitBtn) {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                    
+                    // Oculta a mensagem depois de 6 segundos para deixar limpo
+                    setTimeout(() => {
+                        if(formStatus) {
+                            formStatus.classList.add('hidden');
+                            formStatus.classList.remove('block');
+                        }
+                    }, 6000);
+                }
+            });
+        }
+
+        // 7. Rastreamento de Cliques no WhatsApp para o Google Analytics (GA4)
+        document.querySelectorAll('a[href^="https://wa.me"]').forEach(button => {
+            button.addEventListener('click', () => {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'whatsapp',
+                        'event_label': 'Clique Botao WhatsApp'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
